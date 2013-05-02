@@ -589,6 +589,7 @@
 				AE2A6352172F3B730087FFFA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AE2A6353172F3B730087FFFA /* Build configuration list for PBXNativeTarget "FilterTests" */ = {
 			isa = XCConfigurationList;
@@ -597,6 +598,7 @@
 				AE2A6355172F3B730087FFFA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

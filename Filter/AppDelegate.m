@@ -22,6 +22,13 @@
     UIImage *barButtonImage = [[UIImage imageNamed:@"navItem"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 6, 0, 6)];
     [[UIBarButtonItem appearance] setBackgroundImage:barButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
+    //UIButtons
+    UIImage *resizableButton = [[UIImage imageNamed:@"blackButton.png" ] resizableImageWithCapInsets:UIEdgeInsetsMake(17, 5, 17, 5)];
+    UIImage *resizableButtonHighlighted = [[UIImage imageNamed:@"greenButton.png" ] resizableImageWithCapInsets:UIEdgeInsetsMake(17, 5, 17, 5)];
+    [[UIButton appearance] setBackgroundImage:resizableButton forState:UIControlStateNormal];
+    [[UIButton appearance] setBackgroundImage:resizableButtonHighlighted forState:UIControlStateSelected];
+    
+    
     return YES;
 }
 							
