@@ -16,10 +16,13 @@
     UIImage *navBackgroundImage = [UIImage imageNamed:@"navBar"];
     [[UINavigationBar appearance] setBackgroundImage:navBackgroundImage forBarMetrics:UIBarMetricsDefault];
     // back button
-    UIImage *backButtonImage = [[UIImage imageNamed:@"navItem"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 13, 0, 6)];//allow left arrow
+    UIImage *backButtonImage = [[UIImage imageNamed:@"roundBack"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 18, 0, 10)];//allow left arrow
+    UIImage *backButtonImageLand = [[UIImage imageNamed:@"roundBackLand"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 18, 0, 10)];
     [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButtonImageLand forState:UIControlStateNormal barMetrics:UIBarMetricsLandscapePhone];
+    
     // navigation button
-    UIImage *barButtonImage = [[UIImage imageNamed:@"navItem"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 6, 0, 6)];
+    UIImage *barButtonImage = [[UIImage imageNamed:@"roundButton"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 6, 0, 6)];
     [[UIBarButtonItem appearance] setBackgroundImage:barButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
     //UIButtons

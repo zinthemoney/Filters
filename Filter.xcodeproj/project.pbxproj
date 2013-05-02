@@ -46,6 +46,10 @@
 		AE2A63A6173023360087FFFA /* greenButton.png in Resources */ = {isa = PBXBuildFile; fileRef = AE2A63A4173023360087FFFA /* greenButton.png */; };
 		AE2A63A8173028370087FFFA /* navBar.png in Resources */ = {isa = PBXBuildFile; fileRef = AE2A63A7173028370087FFFA /* navBar.png */; };
 		AE2A63AA17302B4B0087FFFA /* navItem.png in Resources */ = {isa = PBXBuildFile; fileRef = AE2A63A917302B4B0087FFFA /* navItem.png */; };
+		AE2A63B21732CE910087FFFA /* roundBack.png in Resources */ = {isa = PBXBuildFile; fileRef = AE2A63B11732CE910087FFFA /* roundBack.png */; };
+		AE2A63B41732D5480087FFFA /* roundButton.png in Resources */ = {isa = PBXBuildFile; fileRef = AE2A63B31732D5480087FFFA /* roundButton.png */; };
+		AE2A63B61732D6D70087FFFA /* roundBackLand.png in Resources */ = {isa = PBXBuildFile; fileRef = AE2A63B51732D6D60087FFFA /* roundBackLand.png */; };
+		AE2A63B91732E67F0087FFFA /* Appartments.m in Sources */ = {isa = PBXBuildFile; fileRef = AE2A63B81732E67E0087FFFA /* Appartments.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +110,11 @@
 		AE2A63A4173023360087FFFA /* greenButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenButton.png; sourceTree = "<group>"; };
 		AE2A63A7173028370087FFFA /* navBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navBar.png; sourceTree = "<group>"; };
 		AE2A63A917302B4B0087FFFA /* navItem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navItem.png; sourceTree = "<group>"; };
+		AE2A63B11732CE910087FFFA /* roundBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roundBack.png; sourceTree = "<group>"; };
+		AE2A63B31732D5480087FFFA /* roundButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roundButton.png; sourceTree = "<group>"; };
+		AE2A63B51732D6D60087FFFA /* roundBackLand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roundBackLand.png; sourceTree = "<group>"; };
+		AE2A63B71732E67C0087FFFA /* Appartments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appartments.h; sourceTree = "<group>"; };
+		AE2A63B81732E67E0087FFFA /* Appartments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appartments.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +183,8 @@
 				AE2A6337172F3B730087FFFA /* ViewController.m */,
 				AE2A6385172F81E80087FFFA /* FiltersTableViewController.h */,
 				AE2A6386172F81E80087FFFA /* FiltersTableViewController.m */,
+				AE2A63B71732E67C0087FFFA /* Appartments.h */,
+				AE2A63B81732E67E0087FFFA /* Appartments.m */,
 				AE2A6322172F3B730087FFFA /* Supporting Files */,
 			);
 			path = Filter;
@@ -215,6 +226,9 @@
 		AE2A635B172F4F3E0087FFFA /* img */ = {
 			isa = PBXGroup;
 			children = (
+				AE2A63B51732D6D60087FFFA /* roundBackLand.png */,
+				AE2A63B31732D5480087FFFA /* roundButton.png */,
+				AE2A63B11732CE910087FFFA /* roundBack.png */,
 				AE2A63A917302B4B0087FFFA /* navItem.png */,
 				AE2A63A7173028370087FFFA /* navBar.png */,
 				AE2A63A3173023360087FFFA /* blackButton.png */,
@@ -370,6 +384,9 @@
 				AE2A63A6173023360087FFFA /* greenButton.png in Resources */,
 				AE2A63A8173028370087FFFA /* navBar.png in Resources */,
 				AE2A63AA17302B4B0087FFFA /* navItem.png in Resources */,
+				AE2A63B21732CE910087FFFA /* roundBack.png in Resources */,
+				AE2A63B41732D5480087FFFA /* roundButton.png in Resources */,
+				AE2A63B61732D6D70087FFFA /* roundBackLand.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +426,7 @@
 				AE2A6338172F3B730087FFFA /* ViewController.m in Sources */,
 				AE2A6384172F810A0087FFFA /* NMRangeSlider.m in Sources */,
 				AE2A6387172F81E90087FFFA /* FiltersTableViewController.m in Sources */,
+				AE2A63B91732E67F0087FFFA /* Appartments.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
