@@ -18,11 +18,13 @@ typedef NS_OPTIONS(NSUInteger, ZHSelectionMask) {
 };
 
 @interface FiltersTableViewController ()
+/* Remove these
 @property (nonatomic, assign) BOOL studio;
 @property (nonatomic, assign) BOOL oneBed;
 @property (nonatomic, assign) BOOL twoBed;
 @property (nonatomic, assign) BOOL threeBed;
 @property (nonatomic, assign) BOOL fourBed;
+ */
 
 @property (nonatomic) ZHSelectionMask roomSelectionMask;
 @property (nonatomic, strong) NSString *labelString;
@@ -36,10 +38,6 @@ typedef NS_OPTIONS(NSUInteger, ZHSelectionMask) {
     [super viewDidLoad];
     [self configureRangeSlider];
     
-    //additional configs for button
-    
-
-    
     //set the room selection to none
     self.roomSelectionMask = ZHNone;
 }
@@ -47,14 +45,17 @@ typedef NS_OPTIONS(NSUInteger, ZHSelectionMask) {
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    [self updateRangeLabels];// same method used when rangeSlider value changed
+    [self updateRoomLabel];
+    if (self.rangeSlider.lowerValue != 500) {
+        self.rangeSlider.lowerValue = 500;
+    }
+    [self updateRangeLabels];
 }
 
 - (void)viewDidUnload {
     [super viewDidUnload];
     
     [self setPriceLabel:nil];
-
     [self setRangeSlider:nil];
 }
 
@@ -63,13 +64,13 @@ typedef NS_OPTIONS(NSUInteger, ZHSelectionMask) {
 - (void) configureRangeSlider {
     self.rangeSlider.minimumValue = 500;
     self.rangeSlider.maximumValue = 10000;
-    self.rangeSlider.lowerValue = 0;
+    self.rangeSlider.lowerValue = 500;
     self.rangeSlider.upperValue = 10000;
     self.rangeSlider.minimumRange = 100;
 }
 
 - (void)updateRangeLabels {
-    // 
+    //
     self.priceLabel.text = [NSString stringWithFormat:@"$%d - $%d", (int)self.rangeSlider.lowerValue, (int)self.rangeSlider.upperValue];
     
 }
@@ -99,7 +100,7 @@ typedef NS_OPTIONS(NSUInteger, ZHSelectionMask) {
 - (void)updateRoomLabel {
     // No selection, done
     if (self.roomSelectionMask == 0) {
-        self.roomLabel.text = @"Please Select Room";
+        self.roomLabel.text = @"Please Select";
         return;
     }
     
