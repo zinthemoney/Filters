@@ -7,6 +7,7 @@
 //
 
 #import "FiltersTableViewController.h"
+#import "ViewController.h"
 
 typedef NS_OPTIONS(NSUInteger, ZHSelectionMask) {
     ZHNone                  = 0,
@@ -32,6 +33,20 @@ typedef NS_OPTIONS(NSUInteger, ZHSelectionMask) {
 @end
 
 @implementation FiltersTableViewController
+- (IBAction)applyFilter:(id)sender {
+    ViewController *viewController = (ViewController*)[self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count - 2];
+
+    self.delegate = viewController;
+    // make sure delegate is responsive
+    if ([[self delegate] respondsToSelector:@selector(applyFilter:)]) {
+        //gather info for filter predicate
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.price > %d AND SELF.price < %d", (int)self.rangeSlider.lowerValue, (int)self.rangeSlider.upperValue];
+        /*  room predicate here */
+        [self.delegate performSelector:@selector(applyFilter:) withObject:predicate];
+    }
+
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 - (void)viewDidLoad
 {

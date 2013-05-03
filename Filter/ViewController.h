@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FiltersTableViewController.h"
+#import "CoreDataFetchViewController.h"
 
-@interface ViewController : UIViewController
-
+@interface ViewController : CoreDataFetchViewController <FilterDelegate>
+//@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong) UIManagedDocument *appartmentsDatabase;
 @end

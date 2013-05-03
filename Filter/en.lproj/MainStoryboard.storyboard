@@ -8,29 +8,48 @@
         <scene sceneID="5">
             <objects>
                 <viewController id="2" customClass="ViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="3">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="pvJ-ln-zn3">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cWd-0g-huK">
-                                <rect key="frame" x="104" y="187" width="113" height="44"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Go to Filters">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="2Lh-Ml-G2Z" kind="push" id="0cT-yP-UvC"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                    </view>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="AppartmentList" textLabel="Mkx-wR-y8v" detailTextLabel="KLE-ZS-ZQG" style="IBUITableViewCellStyleSubtitle" id="5Cl-Sc-Ond">
+                                <rect key="frame" x="0.0" y="46" width="320" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="10" y="1" width="300" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mkx-wR-y8v">
+                                            <rect key="frame" x="10" y="2" width="38" height="22"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KLE-ZS-ZQG">
+                                            <rect key="frame" x="10" y="24" width="47" height="18"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="2" id="Sja-h9-WkO"/>
+                            <outlet property="delegate" destination="2" id="1YO-0I-RwY"/>
+                        </connections>
+                    </tableView>
                     <navigationItem key="navigationItem" title="Search" id="Fqy-xW-5MR">
-                        <barButtonItem key="rightBarButtonItem" title="Filters" id="Qa7-e0-JhU"/>
+                        <barButtonItem key="rightBarButtonItem" title="Filters" id="Qa7-e0-JhU">
+                            <connections>
+                                <segue destination="2Lh-Ml-G2Z" kind="push" identifier="filter segue" id="ax0-yK-E07"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
@@ -200,7 +219,13 @@
                             <outlet property="delegate" destination="2Lh-Ml-G2Z" id="7QT-Mw-Pw0"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Filters" id="ckO-Im-adk"/>
+                    <navigationItem key="navigationItem" title="Filters" id="ckO-Im-adk">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="i3M-Zf-oBa">
+                            <connections>
+                                <action selector="applyFilter:" destination="2Lh-Ml-G2Z" id="4wt-Vu-Vpa"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="fourButton" destination="IWW-zV-D9h" id="7gA-0h-zSc"/>
                         <outlet property="oneButton" destination="P9S-Oc-tPM" id="wxY-nk-00H"/>
@@ -239,10 +264,19 @@
         <image name="blackButton.png" width="16" height="40"/>
     </resources>
     <classes>
+        <class className="CoreDataFetchViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataFetchViewController.h"/>
+        </class>
         <class className="FiltersTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FiltersTableViewController.h"/>
             <relationships>
+                <relationship kind="action" name="applyFilter:"/>
+                <relationship kind="action" name="fourBed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="oneBed:" candidateClass="UIButton"/>
                 <relationship kind="action" name="rangeSliderChanged:" candidateClass="NMRangeSlider"/>
+                <relationship kind="action" name="studio:" candidateClass="UIButton"/>
+                <relationship kind="action" name="threeBed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="twoBed:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="fourButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="oneButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="priceLabel" candidateClass="UILabel"/>
@@ -256,7 +290,7 @@
         <class className="NMRangeSlider" superclassName="UIControl">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NMRangeSlider.h"/>
         </class>
-        <class className="ViewController" superclassName="UIViewController">
+        <class className="ViewController" superclassName="CoreDataFetchViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
         </class>
     </classes>

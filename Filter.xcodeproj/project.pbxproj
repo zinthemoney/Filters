@@ -49,7 +49,11 @@
 		AE2A63B21732CE910087FFFA /* roundBack.png in Resources */ = {isa = PBXBuildFile; fileRef = AE2A63B11732CE910087FFFA /* roundBack.png */; };
 		AE2A63B41732D5480087FFFA /* roundButton.png in Resources */ = {isa = PBXBuildFile; fileRef = AE2A63B31732D5480087FFFA /* roundButton.png */; };
 		AE2A63B61732D6D70087FFFA /* roundBackLand.png in Resources */ = {isa = PBXBuildFile; fileRef = AE2A63B51732D6D60087FFFA /* roundBackLand.png */; };
-		AE2A63B91732E67F0087FFFA /* Appartments.m in Sources */ = {isa = PBXBuildFile; fileRef = AE2A63B81732E67E0087FFFA /* Appartments.m */; };
+		AE2A63BD17338AA30087FFFA /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AE2A63BB17338AA30087FFFA /* Model.xcdatamodeld */; };
+		AE2A63BF17338AC20087FFFA /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE2A63BE17338AC20087FFFA /* CoreData.framework */; };
+		AE2A63C517338B630087FFFA /* Appartments.m in Sources */ = {isa = PBXBuildFile; fileRef = AE2A63C417338B630087FFFA /* Appartments.m */; };
+		AE2A63C817338BEC0087FFFA /* CoreDataFetchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE2A63C717338BEC0087FFFA /* CoreDataFetchViewController.m */; };
+		AE2A63CB17338F9B0087FFFA /* Appartments+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = AE2A63CA17338F9A0087FFFA /* Appartments+Create.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,8 +117,14 @@
 		AE2A63B11732CE910087FFFA /* roundBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roundBack.png; sourceTree = "<group>"; };
 		AE2A63B31732D5480087FFFA /* roundButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roundButton.png; sourceTree = "<group>"; };
 		AE2A63B51732D6D60087FFFA /* roundBackLand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roundBackLand.png; sourceTree = "<group>"; };
-		AE2A63B71732E67C0087FFFA /* Appartments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appartments.h; sourceTree = "<group>"; };
-		AE2A63B81732E67E0087FFFA /* Appartments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appartments.m; sourceTree = "<group>"; };
+		AE2A63BC17338AA30087FFFA /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		AE2A63BE17338AC20087FFFA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		AE2A63C317338B630087FFFA /* Appartments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appartments.h; sourceTree = "<group>"; };
+		AE2A63C417338B630087FFFA /* Appartments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appartments.m; sourceTree = "<group>"; };
+		AE2A63C617338BEC0087FFFA /* CoreDataFetchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataFetchViewController.h; sourceTree = "<group>"; };
+		AE2A63C717338BEC0087FFFA /* CoreDataFetchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataFetchViewController.m; sourceTree = "<group>"; };
+		AE2A63C917338F9A0087FFFA /* Appartments+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Appartments+Create.h"; sourceTree = "<group>"; };
+		AE2A63CA17338F9A0087FFFA /* Appartments+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Appartments+Create.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +132,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE2A63BF17338AC20087FFFA /* CoreData.framework in Frameworks */,
 				AE2A631C172F3B730087FFFA /* UIKit.framework in Frameworks */,
 				AE2A631E172F3B730087FFFA /* Foundation.framework in Frameworks */,
 				AE2A6320172F3B730087FFFA /* CoreGraphics.framework in Frameworks */,
@@ -163,6 +174,7 @@
 		AE2A631A172F3B730087FFFA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AE2A63BE17338AC20087FFFA /* CoreData.framework */,
 				AE2A631B172F3B730087FFFA /* UIKit.framework */,
 				AE2A631D172F3B730087FFFA /* Foundation.framework */,
 				AE2A631F172F3B730087FFFA /* CoreGraphics.framework */,
@@ -183,8 +195,7 @@
 				AE2A6337172F3B730087FFFA /* ViewController.m */,
 				AE2A6385172F81E80087FFFA /* FiltersTableViewController.h */,
 				AE2A6386172F81E80087FFFA /* FiltersTableViewController.m */,
-				AE2A63B71732E67C0087FFFA /* Appartments.h */,
-				AE2A63B81732E67E0087FFFA /* Appartments.m */,
+				AE2A63BA173384580087FFFA /* Model */,
 				AE2A6322172F3B730087FFFA /* Supporting Files */,
 			);
 			path = Filter;
@@ -285,6 +296,20 @@
 				AE2A6370172F810A0087FFFA /* slider-metal-trackBackground@2x.png */,
 			);
 			path = MetalTheme;
+			sourceTree = "<group>";
+		};
+		AE2A63BA173384580087FFFA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AE2A63C317338B630087FFFA /* Appartments.h */,
+				AE2A63C417338B630087FFFA /* Appartments.m */,
+				AE2A63C917338F9A0087FFFA /* Appartments+Create.h */,
+				AE2A63CA17338F9A0087FFFA /* Appartments+Create.m */,
+				AE2A63BB17338AA30087FFFA /* Model.xcdatamodeld */,
+				AE2A63C617338BEC0087FFFA /* CoreDataFetchViewController.h */,
+				AE2A63C717338BEC0087FFFA /* CoreDataFetchViewController.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -426,7 +451,10 @@
 				AE2A6338172F3B730087FFFA /* ViewController.m in Sources */,
 				AE2A6384172F810A0087FFFA /* NMRangeSlider.m in Sources */,
 				AE2A6387172F81E90087FFFA /* FiltersTableViewController.m in Sources */,
-				AE2A63B91732E67F0087FFFA /* Appartments.m in Sources */,
+				AE2A63BD17338AA30087FFFA /* Model.xcdatamodeld in Sources */,
+				AE2A63C517338B630087FFFA /* Appartments.m in Sources */,
+				AE2A63C817338BEC0087FFFA /* CoreDataFetchViewController.m in Sources */,
+				AE2A63CB17338F9B0087FFFA /* Appartments+Create.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -619,6 +647,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		AE2A63BB17338AA30087FFFA /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				AE2A63BC17338AA30087FFFA /* Model.xcdatamodel */,
+			);
+			currentVersion = AE2A63BC17338AA30087FFFA /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = AE2A6310172F3B730087FFFA /* Project object */;
 }

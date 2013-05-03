@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "NMRangeSlider.h"
 
+@protocol FilterDelegate <NSObject>
+- (void)applyFilter:(NSPredicate *)predicate;
+@end
+
 @interface FiltersTableViewController : UITableViewController
 //range slider
 @property (nonatomic, weak) IBOutlet NMRangeSlider *rangeSlider;
@@ -22,6 +26,7 @@
 @property (nonatomic, weak) IBOutlet UIButton *fourButton;
 
 @property (nonatomic, weak) IBOutlet UILabel *roomLabel;
+@property (nonatomic, assign) id<FilterDelegate> delegate;
 
 - (IBAction)rangeSliderChanged:(NMRangeSlider*)sender;
 - (void)updateRoomLabel;

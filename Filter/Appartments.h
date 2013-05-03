@@ -7,11 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-@interface Appartments : NSObject
-@property (nonatomic, strong) NSString *name;
-@property (nonatomic, assign) int room;
-@property (nonatomic, assign) float price;
 
-- (id)initWithDictionary:(NSDictionary *)dict;
+@interface Appartments : NSManagedObject
+
+@property (nonatomic, retain) NSNumber * room;
+@property (nonatomic, retain) NSNumber * price;
+@property (nonatomic, retain) NSString * name;
+
 @end

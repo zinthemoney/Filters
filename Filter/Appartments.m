@@ -8,17 +8,11 @@
 
 #import "Appartments.h"
 
+
 @implementation Appartments
 
-- (id)initWithDictionary:(NSDictionary *)dict {
-    self = [super init];
-    if (self) {
-        self.name = [dict objectForKey:@"name"];
-        self.room = [[dict objectForKey:@"room"] integerValue];
-        self.price = [[dict objectForKey:@"price"] floatValue];
-    }
-    
-    return self;
-}
+@dynamic room;
+@dynamic price;
+@dynamic name;
 
 @end
