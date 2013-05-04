@@ -65,29 +65,35 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    //can delete these after you load you database
+    // ***temp*** create an add listing page
 //    self.tempAppartments = [NSMutableDictionary dictionary];
 //    [self.tempAppartments setValue:@"awesome" forKey:NAME_KEY];
-//    [self.tempAppartments setValue:[NSNumber numberWithFloat:700] forKey:PRICE_KEY];
-//    [self.tempAppartments setValue:[NSNumber numberWithInt:3] forKey:ROOM_KEY];
+//    [self.tempAppartments setValue:[NSNumber numberWithFloat:9000] forKey:PRICE_KEY];
+//    [self.tempAppartments setValue:[NSNumber numberWithInt:0] forKey:ROOM_KEY];
 //    [Appartments appartmentsWithDictionary:self.tempAppartments inManagedObjectContext:self.appartmentsDatabase.managedObjectContext];
 //    
 //    self.tempAppartments = [NSMutableDictionary dictionary];
 //    [self.tempAppartments setValue:@"fun place" forKey:NAME_KEY];
-//    [self.tempAppartments setValue:[NSNumber numberWithFloat:2700] forKey:PRICE_KEY];
-//    [self.tempAppartments setValue:[NSNumber numberWithInt:5] forKey:ROOM_KEY];
+//    [self.tempAppartments setValue:[NSNumber numberWithFloat:1700] forKey:PRICE_KEY];
+//    [self.tempAppartments setValue:[NSNumber numberWithInt:1] forKey:ROOM_KEY];
 //    [Appartments appartmentsWithDictionary:self.tempAppartments inManagedObjectContext:self.appartmentsDatabase.managedObjectContext];
 //    
 //    self.tempAppartments = [NSMutableDictionary dictionary];
 //    [self.tempAppartments setValue:@"handsome" forKey:NAME_KEY];
-//    [self.tempAppartments setValue:[NSNumber numberWithFloat:900] forKey:PRICE_KEY];
-//    [self.tempAppartments setValue:[NSNumber numberWithInt:3] forKey:ROOM_KEY];
+//    [self.tempAppartments setValue:[NSNumber numberWithFloat:5000] forKey:PRICE_KEY];
+//    [self.tempAppartments setValue:[NSNumber numberWithInt:2] forKey:ROOM_KEY];
 //    [Appartments appartmentsWithDictionary:self.tempAppartments inManagedObjectContext:self.appartmentsDatabase.managedObjectContext];
 //    
 //    self.tempAppartments = [NSMutableDictionary dictionary];
 //    [self.tempAppartments setValue:@"sunny place" forKey:NAME_KEY];
-//    [self.tempAppartments setValue:[NSNumber numberWithFloat:1700] forKey:PRICE_KEY];
-//    [self.tempAppartments setValue:[NSNumber numberWithInt:2] forKey:ROOM_KEY];
+//    [self.tempAppartments setValue:[NSNumber numberWithFloat:1000] forKey:PRICE_KEY];
+//    [self.tempAppartments setValue:[NSNumber numberWithInt:3] forKey:ROOM_KEY];
+//    [Appartments appartmentsWithDictionary:self.tempAppartments inManagedObjectContext:self.appartmentsDatabase.managedObjectContext];
+//    
+//    self.tempAppartments = [NSMutableDictionary dictionary];
+//    [self.tempAppartments setValue:@"cool place" forKey:NAME_KEY];
+//    [self.tempAppartments setValue:[NSNumber numberWithFloat:8000] forKey:PRICE_KEY];
+//    [self.tempAppartments setValue:[NSNumber numberWithInt:4] forKey:ROOM_KEY];
 //    [Appartments appartmentsWithDictionary:self.tempAppartments inManagedObjectContext:self.appartmentsDatabase.managedObjectContext];
 }
 
@@ -122,7 +128,12 @@
     Appartments *appartments = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     cell.textLabel.text = appartments.name;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"Price:$ %@ | Room: %@",appartments.price, appartments.room];
+    NSString *detailsLabels = [NSString stringWithFormat:@"Price:$ %@ | Room: %@",appartments.price, appartments.room];
+    if ([appartments.room isEqualToNumber:[NSNumber numberWithInt:0]]) {
+        detailsLabels = [detailsLabels stringByReplacingOccurrencesOfString:@"Room: 0"
+                                                                 withString:@"Studio"];
+    }
+    cell.detailTextLabel.text = detailsLabels;
     return cell;
     
 }

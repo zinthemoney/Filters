@@ -19,30 +19,44 @@ typedef NS_OPTIONS(NSUInteger, ZHSelectionMask) {
 };
 
 @interface FiltersTableViewController ()
-/* Remove these
-@property (nonatomic, assign) BOOL studio;
-@property (nonatomic, assign) BOOL oneBed;
-@property (nonatomic, assign) BOOL twoBed;
-@property (nonatomic, assign) BOOL threeBed;
-@property (nonatomic, assign) BOOL fourBed;
- */
 
 @property (nonatomic) ZHSelectionMask roomSelectionMask;
 @property (nonatomic, strong) NSString *labelString;
-
 @end
 
 @implementation FiltersTableViewController
+#define MAX_ROOM_COUNT 5
+
+- (NSArray *)selectedRoom {
+    //just iterate through the mask
+    NSMutableArray *rooms = [NSMutableArray array];
+    for (int i = 0; i < MAX_ROOM_COUNT; i++) {
+        if (self.roomSelectionMask & (1 << i)) {
+            [rooms addObject:[NSNumber numberWithInt:i]];
+        }
+    }
+    
+    //no selections
+    if ([rooms count] == 0) {
+        // not filtered, assume user doesn't mean none
+        return @[@0,@1,@2,@3,@4];
+    } else {
+        return (NSArray*) rooms;
+    }
+    
+    
+}
 - (IBAction)applyFilter:(id)sender {
     ViewController *viewController = (ViewController*)[self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count - 2];
 
     self.delegate = viewController;
     // make sure delegate is responsive
     if ([[self delegate] respondsToSelector:@selector(applyFilter:)]) {
-        //gather info for filter predicate
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.price > %d AND SELF.price < %d", (int)self.rangeSlider.lowerValue, (int)self.rangeSlider.upperValue];
-        /*  room predicate here */
-        [self.delegate performSelector:@selector(applyFilter:) withObject:predicate];
+        
+        NSPredicate *predicateRoom = [NSPredicate predicateWithFormat:@"SELF.price > %d AND SELF.price < %d AND SELF.room IN $ROOMLIST", (int)self.rangeSlider.lowerValue, (int)self.rangeSlider.upperValue];
+        NSPredicate *predicateRoomList = [predicateRoom predicateWithSubstitutionVariables:
+                         [NSDictionary dictionaryWithObject:[self selectedRoom] forKey:@"ROOMLIST"]];
+        [self.delegate performSelector:@selector(applyFilter:) withObject:predicateRoomList];
     }
 
     [self.navigationController popViewControllerAnimated:YES];
@@ -120,11 +134,10 @@ typedef NS_OPTIONS(NSUInteger, ZHSelectionMask) {
     }
     
     // Tedious logic to update the room selection label
-    int cnt = 5;
     self.labelString = @""; // init
     BOOL contiguous = NO; // check for contiguous or not
     NSMutableArray *selected = [NSMutableArray array];
-    for (int i = 0; i < cnt; i++) {
+    for (int i = 0; i < MAX_ROOM_COUNT; i++) {
         if (self.roomSelectionMask & (1 << i)) {    //***hit***
             if (i == 0) {
                 //Studio
@@ -136,7 +149,7 @@ typedef NS_OPTIONS(NSUInteger, ZHSelectionMask) {
                 if ([selected lastObject] != nil)[selected addObject:(id)@","];
                 [selected addObject:(id)[self mapMaskToString:(1<<i)]];
                 contiguous = YES;
-            } else if (i == cnt -1) { //last one
+            } else if (i == MAX_ROOM_COUNT -1) { //last one
                 [selected addObject:(id)@" - "];
                 [selected addObject:(id)[self mapMaskToString:(1<<i)]];
             }

@@ -11,6 +11,5 @@
 #import "CoreDataFetchViewController.h"
 
 @interface ViewController : CoreDataFetchViewController <FilterDelegate>
-//@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong) UIManagedDocument *appartmentsDatabase;
 @end
